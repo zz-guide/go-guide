@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 )
 
 /**
@@ -13,55 +13,63 @@ import (
 2.外层从i=1开始
 3.内层遍历当前元素之前的有序区间
 
-时间复杂度:正序的时候[1,2,3,4,5]是O(N),逆序时O(N^2)最坏;整体:O(N^(1-2))
-空间复杂度:常数阶O(1)
-
 稳定性分析:如果待排序的序列中存在两个或两个以上具有相同关键词的数据，排序后这些数据的相对次序保持不变，即它们的位置保持不变，通俗地讲，就是两个相同的数的相对顺序不会发生改变，则该算法是稳定的；
 		 如果排序后，数据的相对次序发生了变化，则该算法是不稳定的。
 
-结论:关键词相同的数据元素将保持原有位置不变，所以该算法是稳定的。
+结论:
+1.关键词相同的数据元素将保持原有位置不变，所以该算法是稳定的。
+2.时间复杂度:正序的时候[1,2,3,4,5]是O(N),逆序时O(N^2)最坏;整体:O(N^(1-2))
+3.空间复杂度:常数阶O(1)
 建议:插入排序适用于已经有部分数据已经排好，并且排好的部分越大越好。一般在输入规模大于1000的场合下不建议使用插入排序
 
 i++和i--在Go语言中是语句，不是表达式，因此不能赋值给另外的变量。此外没有++i和--i
 */
 func main() {
-	list := []int{4, 3, 5, 1, 2, 9}
-	fmt.Println("插入排序:", InsertSort(list))
+	nums := []int{4, 3, 5, 1, 2, 9}
+	nums1 := []int{4, 3, 5, 1, 2, 9}
+	log.Println("插入排序-哨兵法:", InsertSort(nums))
+	log.Println("插入排序-交换法:", InsertSort1(nums1))
 }
 
+// InsertSort 直接插入排序 最好时间复杂度O(n),最坏时间复杂度O(n^2),空间复杂度O(1)
+// 稳定排序算法
 func InsertSort(nums []int) []int {
 	n := len(nums)
 	if n < 2 {
 		return nums
 	}
 
-	newNums := make([]int, len(nums))
-	copy(newNums, nums)
+	for i := 1; i < len(nums); i++ {
+		temp := nums[i]
 
-	// 1.确定当前元素（通常从第二个元素开始，第一个元素自身认为是有序的）
-	// 2.每次比较当前元素和左移一个位置的元素大小，当前元素小就需要移动
-	// 3.此处移动元素是通过覆盖的形式做的
-
-	for j := 1; j < len(newNums); j++ {
-		cur := newNums[j] // 当前元素
-
-		i := j - 1 // 当前元素的前一个位置
-
-		// 遍历集合0~i位置的元素,当前元素在i+1的位置
-		// 优化: 此处可以把0~i区间通过二分查找到要插入的位置，就变成折半插入排序了
-		for i >= 0 {
-			if newNums[i] <= cur {
-				break
-			}
-
-			// 发现区间的元素比当前元素大，则把该区间的这个元素右移一个位置
-			newNums[i+1] = newNums[i]
-			i--
+		// j代表了第一个比temp小的值的位置
+		var j = i - 1
+		// 此处控制是从小到大排还是从大到小排
+		for j >= 0 && nums[j] > temp {
+			// 不停的推动占位
+			nums[j+1] = nums[j]
+			j--
 		}
 
-		// 跳出循环的时候说明i-1位置的元素比当前元素小，当前元素需要挪动到i+1的位置
-		newNums[i+1] = cur
+		// j+1自然就是temp应该排序的位置
+		nums[j+1] = temp
 	}
 
-	return newNums
+	return nums
+}
+
+// InsertSort1 交换法
+func InsertSort1(nums []int) []int {
+	n := len(nums)
+	if n < 2 {
+		return nums
+	}
+
+	for i := 1; i < len(nums); i++ {
+		for j := i - 1; j >= 0 && nums[j] > nums[j+1]; j-- {
+			nums[j], nums[j+1] = nums[j+1], nums[j]
+		}
+	}
+
+	return nums
 }

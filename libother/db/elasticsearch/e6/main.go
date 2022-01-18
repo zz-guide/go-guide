@@ -1,23 +1,23 @@
-package e5
+package e6
 
 import (
 	"bytes"
 	"context"
 	"encoding/json"
-	"github.com/elastic/go-elasticsearch/v5"
-	"github.com/elastic/go-elasticsearch/v5/esapi"
+	"github.com/elastic/go-elasticsearch/v6"
+	"github.com/elastic/go-elasticsearch/v6/esapi"
 
 	"fmt"
 	"os"
 )
 
-var es5Client *elasticsearch.Client
+var es6Client *elasticsearch.Client
 
 func init() {
 	var err error
 	config := elasticsearch.Config{}
 	config.Addresses = []string{"http://baiyin789.top:9200"}
-	es5Client, err = elasticsearch.NewClient(config)
+	es6Client, err = elasticsearch.NewClient(config)
 	checkError(err)
 }
 
@@ -45,7 +45,7 @@ func CreateIndex() {
 		Index: "test_index",
 		Body:  bytes.NewReader(jsonBody),
 	}
-	res, err := req.Do(context.Background(), es5Client)
+	res, err := req.Do(context.Background(), es6Client)
 	checkError(err)
 	defer res.Body.Close()
 	fmt.Println(res.String())
@@ -65,7 +65,7 @@ func InsertSingle() {
 		DocumentID:   "test_1",
 		Body:         bytes.NewReader(jsonBody),
 	}
-	res, err := req.Do(context.Background(), es5Client)
+	res, err := req.Do(context.Background(), es6Client)
 	checkError(err)
 	defer res.Body.Close()
 	fmt.Println(res.String())

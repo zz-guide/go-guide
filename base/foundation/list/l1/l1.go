@@ -12,7 +12,7 @@ func main() {
 // stackExample
 // 模拟栈的先进后出
 //**
-func stackExample(){
+func stackExample() {
 	stack := list.New()
 
 	stack.PushBack(1)
@@ -29,7 +29,7 @@ func stackExample(){
 // queueExample
 // 模拟队列的先进先出
 //**
-func queueExample(){
+func queueExample() {
 	stack := list.New()
 
 	stack.PushBack(1)

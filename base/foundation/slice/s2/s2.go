@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	ex := []int{0,1,2,3,4,5,6,7,8,9}
+	ex := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 
 	// ex[:], ex[0:], ex[:0] 等同于浅拷贝自身
 	newEx := ex[:]
@@ -60,7 +60,7 @@ func main() {
 	//fmt.Println("slice is empty:", len(a), cap(a), len(f), cap(f))
 
 	// copy 深拷贝
-	t1 := []int{1,2,3}
+	t1 := []int{1, 2, 3}
 	t2 := make([]int, 3)
 	copy(t2, t1)
 	fmt.Printf("t1: %p %#v \n", &t1, t1)
@@ -70,4 +70,15 @@ func main() {
 	t2[2] = 45
 	fmt.Printf("t1: %p %#v \n", &t1, t1)
 	fmt.Printf("t2: %p %#v \n", &t2, t2)
+}
+
+func Pop() {
+	a := []int{1, 2, 3, 4, 5}
+	c := a[0:len(a)]
+	// 0-长度减1可以把最后一个元素弹出
+	b := a[0 : len(a)-1]
+
+	fmt.Println("a:", a)
+	fmt.Println("c:", c)
+	fmt.Println("b:", b)
 }

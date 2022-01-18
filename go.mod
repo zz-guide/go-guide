@@ -5,10 +5,11 @@ go 1.17
 require (
 	github.com/alibaba/sentinel-golang v1.0.3
 	github.com/apache/pulsar-client-go v0.7.0
+	github.com/apache/rocketmq-client-go/v2 v2.1.0
 	github.com/beanstalkd/go-beanstalk v0.1.0
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/confluentinc/confluent-kafka-go v1.8.2
-	github.com/elastic/go-elasticsearch/v5 v5.6.1
+	github.com/elastic/go-elasticsearch/v6 v6.8.10
 	github.com/emirpasic/gods v1.12.0
 	github.com/fsnotify/fsnotify v1.5.1
 	github.com/garyburd/redigo v1.6.2
@@ -16,6 +17,7 @@ require (
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/golang-module/carbon/v2 v2.0.0
+	github.com/golang/protobuf v1.5.2
 	github.com/gorilla/mux v1.8.0
 	github.com/gorilla/websocket v1.4.2
 	github.com/hpcloud/tail v1.0.0
@@ -36,6 +38,7 @@ require (
 	github.com/stretchr/testify v1.7.0
 	github.com/tal-tech/go-zero v1.2.3
 	github.com/tidwall/gjson v1.13.0
+	github.com/withlin/canal-go v1.1.1
 	github.com/xuri/excelize/v2 v2.4.1
 	go.uber.org/ratelimit v0.2.0
 	go.uber.org/zap v1.17.0
@@ -55,7 +58,6 @@ require (
 	github.com/StackExchange/wmi v1.2.1 // indirect
 	github.com/andres-erbsen/clock v0.0.0-20160526145045-9e14626cd129 // indirect
 	github.com/apache/pulsar-client-go/oauth2 v0.0.0-20201120111947-b8bd55bc02bd // indirect
-	github.com/apache/rocketmq-client-go/v2 v2.1.0 // indirect
 	github.com/ardielle/ardielle-go v1.5.2 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
@@ -68,7 +70,6 @@ require (
 	github.com/godbus/dbus v0.0.0-20190726142602-4481cbc300e2 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/mock v1.6.0 // indirect
-	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1 // indirect
@@ -77,7 +78,7 @@ require (
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.2 // indirect
-	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/json-iterator/go v1.1.11 // indirect
 	github.com/jtolds/gls v4.20.0+incompatible // indirect
 	github.com/keybase/go-keychain v0.0.0-20211119201326-e02f34051621 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
@@ -86,7 +87,7 @@ require (
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
 	github.com/mitchellh/mapstructure v1.4.2 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
-	github.com/modern-go/reflect2 v1.0.2 // indirect
+	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/mtibben/percent v0.2.1 // indirect
 	github.com/pelletier/go-toml v1.9.4 // indirect
@@ -99,6 +100,7 @@ require (
 	github.com/prometheus/procfs v0.6.0 // indirect
 	github.com/richardlehane/mscfb v1.0.3 // indirect
 	github.com/richardlehane/msoleps v1.0.1 // indirect
+	github.com/samuel/go-zookeeper v0.0.0-20190923202752-2cc03de413da // indirect
 	github.com/shirou/gopsutil/v3 v3.21.6 // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/smartystreets/assertions v0.0.0-20180927180507-b2de0cb4f26d // indirect

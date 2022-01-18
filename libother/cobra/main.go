@@ -15,8 +15,5 @@ limitations under the License.
 */
 package main
 
-import "helen/cobra_demo/cmd"
-
 func main() {
-	cmd.Execute()
 }
