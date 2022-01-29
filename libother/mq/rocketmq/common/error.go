@@ -1,14 +1,13 @@
 package common
 
 import (
-	"fmt"
-	"os"
+	"log"
 	"time"
 )
 
 func EchoError(err error) {
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "find error: %v\n", err)
+		log.Fatalf("find error: %v\n", err)
 	}
 }
 

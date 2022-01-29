@@ -2,14 +2,24 @@ package main
 
 import (
 	. "go-guide/datastruct/list/node"
+	"log"
 )
 
 /**
 题目：https://leetcode-cn.com/problems/palindrome-linked-list/
+
 判断回文链表
+
 */
 func main() {
+	list1 := MakeListNode([]int{1, 2, 3, 4})
+	log.Println("判断回文链表-遍历判断数组:", isPalindrome1(list1))
 
+	list2 := MakeListNode([]int{1, 2, 3, 4})
+	log.Println("判断回文链表-递归:", isPalindrome2(list2))
+
+	list3 := MakeListNode([]int{1, 2, 3, 4})
+	log.Println("判断回文链表-双指针:", isPalindrome3(list3))
 }
 
 // 将值复制到数组中后用双指针法 时间复杂度O(N) 空间复杂度O(N)

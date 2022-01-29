@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"strconv"
 )
 
@@ -27,7 +27,7 @@ s 仅由数字组成
 */
 func main() {
 	s := "25525511135"
-	fmt.Println("复原 IP 地址:", restoreIpAddresses(s))
+	log.Println("复原 IP 地址:", restoreIpAddresses(s))
 }
 
 func restoreIpAddresses(s string) []string {

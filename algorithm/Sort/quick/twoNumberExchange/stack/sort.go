@@ -1,10 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 func main() {
 	arr := []int{9, 0, 7, 1, 4, 8, 4, 9, 9, 7}
-	fmt.Println("快速排序(迭代法):", sortArray(arr))
+	log.Println("快速排序(迭代法):", sortArray(arr))
 }
 
 // Stack 定义栈

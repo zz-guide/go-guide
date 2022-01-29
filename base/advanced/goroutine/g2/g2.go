@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /*
  go的抢占式调度
@@ -9,7 +11,7 @@ func main() {
 	go func(n int) {
 		for {
 			n++
-			fmt.Println("n:", n)
+			log.Println("n:", n)
 		}
 	}(0)
 

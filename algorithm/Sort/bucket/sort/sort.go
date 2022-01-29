@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 )
 
 /**
@@ -10,7 +10,7 @@ import (
 */
 func main() {
 	nums := []int{10, 1, 18, 30, 23, 12, 7, 5, 18, 17}
-	fmt.Println("桶排序:", bucketSort(nums))
+	log.Println("桶排序:", bucketSort(nums))
 }
 
 /*

@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /**
 归并排序（Merge Sort）是建立在归并操作上的一种有效，稳定的排序算法，该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。
@@ -11,7 +13,7 @@ import "fmt"
 */
 func main() {
 	nums := []int{8, 4, 5, 7, 1, 3, 6, 2}
-	fmt.Println("归并排序:", mergeSort(nums))
+	log.Println("归并排序:", mergeSort(nums))
 }
 
 func mergeSort(r []int) []int {
@@ -38,7 +40,7 @@ func merge(left, right []int) (result []int) {
 		}
 	}
 
-	fmt.Println(left, right, "---->", result, left[l:], right[r:])
+	log.Println(left, right, "---->", result, left[l:], right[r:])
 	result = append(result, left[l:]...)
 	result = append(result, right[r:]...)
 	return

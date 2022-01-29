@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -25,9 +25,9 @@ import (
 */
 func main() {
 	nums := NewNormalTree()
-	fmt.Println("打家劫舍III-递归:", rob(nums))
-	fmt.Println("打家劫舍III-记忆化递归:", rob1(nums))
-	fmt.Println("打家劫舍III-动态规划+递归:", rob2(nums))
+	log.Println("打家劫舍III-递归:", rob(nums))
+	log.Println("打家劫舍III-记忆化递归:", rob1(nums))
+	log.Println("打家劫舍III-动态规划+递归:", rob2(nums))
 }
 
 // rob 递归, 会超时

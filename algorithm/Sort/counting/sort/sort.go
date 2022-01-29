@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"math/rand"
 	"time"
 )
@@ -20,9 +20,9 @@ func main() {
 	}
 
 	ContingSortAsc(slice)
-	fmt.Println("计数排序升序:", slice)
+	log.Println("计数排序升序:", slice)
 	ContingSortDesc(slice)
-	fmt.Println("计数排序降序:", slice)
+	log.Println("计数排序降序:", slice)
 }
 
 // 计数排序--升序

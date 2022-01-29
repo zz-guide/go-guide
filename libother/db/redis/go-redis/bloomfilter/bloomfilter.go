@@ -4,32 +4,14 @@ import (
 	"context"
 	"fmt"
 	"github.com/go-redis/redis/v8"
-	"time"
+	"go-guide/libother/db/redis/go-redis/common"
 )
 
-//git clone https://github.com/RedisBloom/RedisBloom.git
-//cd RedisBloom
-//make //编译 生成so文件
-//redis-server --loadmodule /path/to/rebloom.so
-
 func main() {
+	rdb := common.Rdb()
+	defer rdb.Close()
+
 	ctx := context.Background()
-	GlobalClient := redis.NewClient(
-		&redis.Options{
-			Addr:         "127.0.0.1:6379",
-			DialTimeout:  10 * time.Second,
-			ReadTimeout:  30 * time.Second,
-			WriteTimeout: 30 * time.Second,
-			Password:     "",
-			PoolSize:     10,
-			DB:           0,
-		},
-	)
-	err := GlobalClient.Ping(ctx).Err()
-	if nil != err {
-		panic(err)
-	}
-	fmt.Println("链接redis成功")
 	/*	info:=redis.NewStatusCmd("bf.add", "bl", "1")
 		_ = GlobalClient.Process(info)
 		if err := info.Err(); err != nil {
@@ -46,7 +28,7 @@ func main() {
 			print(err)
 		}*/
 	info4 := redis.NewIntCmd(ctx, "bf.exists", "bl", "6")
-	_ = GlobalClient.Process(ctx, info4)
+	_ = rdb.Process(ctx, info4)
 	if err := info4.Err(); err != nil {
 		print(err)
 	}

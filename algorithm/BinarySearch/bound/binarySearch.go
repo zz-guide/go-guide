@@ -1,13 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 func main() {
 	nums := []int{1, 2, 2, 2, 3}
 	target := -2
 
-	fmt.Println("最小边界：", binarySearchMinBound(nums, target))
-	fmt.Println("最大边界：", binarySearchMaxBound(nums, target))
+	log.Println("最小边界：", binarySearchMinBound(nums, target))
+	log.Println("最大边界：", binarySearchMaxBound(nums, target))
 }
 
 // binarySearchMinBound
@@ -36,8 +38,8 @@ func binarySearchMinBound(nums []int, target int) int {
 
 	// 当遍历一遍的时候，如果target>nums中最大值，则low会超出high,此时high=len(nums)-1
 	// 当遍历一遍的时候，如果target<nums中最大值，则high会小于low,此时low=0
-	//fmt.Println("low:", low)
-	//fmt.Println("high:", high)
+	//log.Println("low:", low)
+	//log.Println("high:", high)
 
 	// 因为是最小边界，肯定是返回low
 	// 因为nums[low]可能越界。所以先判断low和len(nums)的关系
@@ -74,8 +76,8 @@ func binarySearchMaxBound(nums []int, target int) int {
 
 	// 当遍历一遍的时候，如果target>nums中最大值，则low会超出high,此时high=len(nums)-1
 	// 当遍历一遍的时候，如果target<nums中最大值，则high会小于low,此时low=0
-	//fmt.Println("low:", low)
-	//fmt.Println("high:", high)
+	//log.Println("low:", low)
+	//log.Println("high:", high)
 
 	// 因为是最小边界，肯定是返回low
 	// 因为nums[high]可能越界。所以先判断low和len(nums)的关系

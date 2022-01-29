@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /**
 BF（Brute Force）算法
@@ -12,7 +14,7 @@ BF（Brute Force）算法
 func main() {
 	str := "ababd"
 	target := "abd"
-	fmt.Println("BF算法查找:", BF(str, target))
+	log.Println("BF算法查找:", BF(str, target))
 }
 
 // BF 外层遍历主串，内层遍历子串

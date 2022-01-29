@@ -1,5 +1,10 @@
 package main
 
+import (
+	. "go-guide/datastruct/trie/trie"
+	"log"
+)
+
 /**
 题目：https://leetcode-cn.com/problems/implement-trie-prefix-tree/
 
@@ -18,7 +23,30 @@ boolean startsWith(String prefix) 如果之前已经插入的字符串word 的�
 word 和 prefix 仅由小写英文字母组成
 insert、search 和 startsWith 调用次数 总计 不超过 3 * 104 次
 
+使用场景:
+字符串查找，词频统计，智能提示，敏感词过滤等。
+
 */
 func main() {
-	//words := []string{"Trie", "insert", "search", "search", "startsWith", "insert", "search"}
+	Do()
+}
+
+func Do() {
+	words := []string{"insert"}
+	trie := NewTrie()
+	for _, word := range words {
+		trie.Insert(word)
+	}
+
+	// 搜索
+	res := trie.Search("inserta")
+	log.Println("Search:", res)
+
+	res1 := trie.StartsWith("in")
+	log.Println("StartsWith:", res1)
+
+	// 删除
+	trie.Del("insert")
+	res2 := trie.Search("insert")
+	log.Println("Del之后再查找:", res2, trie.Children)
 }

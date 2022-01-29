@@ -4,26 +4,14 @@ import (
 	"context"
 	"fmt"
 	"github.com/go-redis/redis/v8"
-	"time"
+	"go-guide/libother/db/redis/go-redis/common"
 )
 
 func main() {
 	ctx := context.Background()
-	GlobalClient := redis.NewClient(
-		&redis.Options{
-			Addr:         "127.0.0.1:6379",
-			DialTimeout:  10 * time.Second,
-			ReadTimeout:  30 * time.Second,
-			WriteTimeout: 30 * time.Second,
-			Password:     "",
-			PoolSize:     10,
-			DB:           0,
-		},
-	)
-	err := GlobalClient.Ping(ctx).Err()
-	if nil != err {
-		panic(err)
-	}
+	rdb := common.Rdb()
+	defer rdb.Close()
+
 	//redis乐观锁支持，可以通过watch监听一些Key, 如果这些key的值没有被其他人改变的话，才可以提交事务。
 	// 定义一个回调函数，用于处理事务逻辑
 	fn := func(tx *redis.Tx) error {
@@ -44,7 +32,7 @@ func main() {
 	}
 	// 使用Watch监听一些Key, 同时绑定一个回调函数fn, 监听Key后的逻辑写在fn这个回调函数里面
 	// 如果想监听多个key，可以这么写：client.Watch(fn, "key1", "key2", "key3")
-	err = GlobalClient.Watch(ctx, fn, "pipe_test")
+	err := rdb.Watch(ctx, fn, "pipe_test")
 	if nil != err {
 		panic(err)
 	}

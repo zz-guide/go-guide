@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /**
 给你一个可装载重量为 W 的背包和 N 个物品，每个物品有重量和价值两个属性。其中第 i 个物品的重量为 wt[i]，价值为 val[i]，现在让你用这个背包装物品，最多能装的价值是多少？
@@ -32,9 +34,9 @@ func main() {
 	goodsWeight := []int{2, 3, 4, 5}
 	goodsValue := []int{3, 4, 5, 8}
 	bagWeight := 8
-	fmt.Println("背包最大价值(二维简单):", bagMaxValue1(goodsWeight, goodsValue, bagWeight))
-	fmt.Println("背包最大价值(二维优化):", bagMaxValue2(goodsWeight, goodsValue, bagWeight))
-	fmt.Println("背包最大价值(一维优化):", bagMaxValue3(goodsWeight, goodsValue, bagWeight))
+	log.Println("背包最大价值(二维简单):", bagMaxValue1(goodsWeight, goodsValue, bagWeight))
+	log.Println("背包最大价值(二维优化):", bagMaxValue2(goodsWeight, goodsValue, bagWeight))
+	log.Println("背包最大价值(一维优化):", bagMaxValue3(goodsWeight, goodsValue, bagWeight))
 }
 
 func max(a, b int) int {

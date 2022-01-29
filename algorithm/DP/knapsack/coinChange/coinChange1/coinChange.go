@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"math"
 )
 
@@ -14,7 +14,7 @@ func main() {
 	coins := []int{1, 2, 5}
 	amount := 11
 
-	fmt.Println("兑换结果:", coinChange(coins, amount))
+	log.Println("兑换结果:", coinChange(coins, amount))
 }
 
 func coinChange(coins []int, amount int) int {

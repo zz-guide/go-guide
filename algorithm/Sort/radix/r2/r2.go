@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"math"
 	"strconv"
 )
@@ -11,7 +11,7 @@ import (
 */
 func main() {
 	nums := []int{9, 0, 7, 1, 4, 8, 4, 9, 9, 7}
-	fmt.Println("基数排序:", radixsort(nums))
+	log.Println("基数排序:", radixsort(nums))
 }
 
 func radixsort(arr []int) []int {

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"time"
 )
 
@@ -9,19 +10,19 @@ func main() {
 	readWrite()
 }
 
-func write(){
+func write() {
 	/*
 		写未初始化的 chan，会死锁：all goroutines are asleep - deadlock!chan send (nil chan)
 	*/
 
 	var c chan int
 	c <- 1
-	fmt.Println("ssssssss")
+	log.Println("ssssssss")
 }
 
-func readWrite(){
+func readWrite() {
 	/**
-		all goroutines are asleep - deadlock![chan receive (nil chan)]
+	all goroutines are asleep - deadlock![chan receive (nil chan)]
 	*/
 	var c chan int
 	go func() {

@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/go-redis/redis/v8"
+	"go-guide/libother/db/redis/go-redis/common"
 	"log"
 	"os"
 	"os/signal"
@@ -14,19 +14,8 @@ func main() {
 	ctx, _ := context.WithCancel(context.Background())
 	c := make(chan os.Signal)
 	signal.Notify(c, os.Interrupt, os.Kill, syscall.SIGUSR1, syscall.SIGUSR2)
-	rdb := redis.NewClient(&redis.Options{
-		Addr:     "127.0.0.1:6379",
-		Password: "123456",
-		DB:       0,
-	})
-
-	pong, err := rdb.Ping(ctx).Result() // 检查是否连接
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// 连接成功啦
-	log.Println(pong)
+	rdb := common.Rdb()
+	defer rdb.Close()
 
 	// 订阅全部消息
 	pubsub := rdb.Subscribe(ctx, "name")

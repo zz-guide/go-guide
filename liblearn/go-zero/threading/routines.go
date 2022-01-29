@@ -2,10 +2,9 @@ package threading
 
 import (
 	"bytes"
+	"log"
 	"runtime"
 	"strconv"
-
-	"go-guide/liblearn/go-zero/rescue"
 )
 
 // GoSafe runs the given fn using another goroutine, recovers if fn panics.
@@ -27,7 +26,11 @@ func RoutineId() uint64 {
 
 // RunSafe runs the given fn, recovers if fn panics.
 func RunSafe(fn func()) {
-	defer rescue.Recover()
+	defer func() {
+		if p := recover(); p != nil {
+			log.Println("p:", p)
+		}
+	}()
 
 	fn()
 }

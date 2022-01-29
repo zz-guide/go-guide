@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"runtime"
 	"time"
 )
@@ -12,18 +12,18 @@ import (
 2.runtime.Goexit结束当前goroutine,其他的goroutine不受影响,主程序也一样继续运行
 */
 func main() {
-	fmt.Println("----开始-----:")
+	log.Println("----开始-----:")
 	printGNum()
 
 	go func() {
-		fmt.Println("go1 runtime.Goexit")
+		log.Println("go1 runtime.Goexit")
 		printGNum()
 		time.Sleep(time.Second * 3)
 		runtime.Goexit()
 	}()
 
 	go func() {
-		fmt.Println("go2 return")
+		log.Println("go2 return")
 		printGNum()
 		time.Sleep(time.Second * 6)
 
@@ -31,10 +31,10 @@ func main() {
 	}()
 
 	time.Sleep(time.Second * 15)
-	fmt.Println("----结束-----")
+	log.Println("----结束-----")
 	printGNum()
 }
 
 func printGNum() {
-	fmt.Println("g的数量:", runtime.NumGoroutine())
+	log.Println("g的数量:", runtime.NumGoroutine())
 }

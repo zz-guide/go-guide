@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /**
 题目：给定一个n个元素有序的（升序）整型数组nums 和一个目标值target，写一个函数搜索nums中的 target，如果目标值存在返回下标，否则返回 -1。
@@ -25,7 +27,7 @@ func main() {
 	nums := []int{-1, 0, 3, 5, 9, 12}
 	target := 9
 
-	fmt.Println("值:", binarySearch(nums, target))
+	log.Println("值:", binarySearch(nums, target))
 }
 
 // F1 时间复杂度：O(logN)，其中 n 是数组的长度。 空间复杂度：O(1)。原地查找
