@@ -1,19 +1,32 @@
 package main
 
-import "fmt"
+import "log"
 
 type Student struct {
-	Name string
-	Age  int
+	name string
+	age  int
+}
+
+// 方法体
+func (s Student) GetName() string {
+	log.Printf("GetName s地址=%p\n", &s)
+	return s.name
+}
+
+// 接收者
+func (s *Student) AddAge(i int) {
+	log.Printf("AddAge s地址=%p\n", &s)
+	s.age += i
 }
 
 func main() {
-	//s := Student{Name: "许磊"}
-	//s = nil
-	s1 := []int{1, 2}
-	// struct不能使用range遍历
-	for i, i2 := range s1 {
-		fmt.Println("i:", i)
-		fmt.Println("i:", i2)
-	}
+	s := Student{name: "许磊", age: 27}
+	log.Printf("s地址=%p,+%v\n", &s, s)
+	s.AddAge(3)
+	s.GetName()
+
+	s1 := &Student{name: "李四", age: 23}
+	s1.AddAge(2)
+	s1.GetName()
+
 }

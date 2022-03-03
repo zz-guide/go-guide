@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -31,9 +31,9 @@ import (
 func main() {
 	root := NewNormalTree()
 
-	fmt.Println("翻转二叉树-递归:", invertTree(root))
-	fmt.Println("翻转二叉树-迭代bfs", invertTree1(root))
-	fmt.Println("翻转二叉树-迭代dfs", invertTree2(root))
+	log.Println("翻转二叉树-递归:", invertTree(root))
+	log.Println("翻转二叉树-迭代bfs", invertTree1(root))
+	log.Println("翻转二叉树-迭代dfs", invertTree2(root))
 }
 
 // invertTree 递归法，前后序都可以,中序不行，可能会反转两次，相当于又回去了

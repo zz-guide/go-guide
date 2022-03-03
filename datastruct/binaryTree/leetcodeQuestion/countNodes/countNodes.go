@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 	"sort"
 )
 
@@ -19,8 +19,8 @@ https://leetcode-cn.com/problems/count-complete-tree-nodes/
 func main() {
 	root := NewCompleteBinaryTree()
 
-	fmt.Println("完全二叉树的结点个数-特性：", countNodes(root))
-	fmt.Println("完全二叉树的结点个数-特性：", countNodes1(root))
+	log.Println("完全二叉树的结点个数-特性：", countNodes(root))
+	log.Println("完全二叉树的结点个数-特性：", countNodes1(root))
 }
 
 // countNodes 利用完全二叉树特性的递归

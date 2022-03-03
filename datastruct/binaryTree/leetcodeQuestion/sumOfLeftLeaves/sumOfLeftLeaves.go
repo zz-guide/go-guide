@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -17,8 +17,8 @@ import (
 func main() {
 	root := NewNormalTree()
 
-	fmt.Println("左叶结点之和-递归：", sumOfLeftLeaves(root))
-	fmt.Println("左叶结点之和-递归：", sumOfLeftLeaves1(root))
+	log.Println("左叶结点之和-递归：", sumOfLeftLeaves(root))
+	log.Println("左叶结点之和-递归：", sumOfLeftLeaves1(root))
 }
 
 // sumOfLeftLeaves dfs 前序遍历 递归

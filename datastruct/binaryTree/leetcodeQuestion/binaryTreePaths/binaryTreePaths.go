@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 	"strconv"
 )
 
@@ -17,8 +18,8 @@ import (
 func main() {
 	root := NewNormalTree()
 
-	fmt.Println("二叉树所有路径-递归：", binaryTreePaths(root))
-	fmt.Println("二叉树所有路径-递归：", binaryTreePaths1(root))
+	log.Println("二叉树所有路径-递归：", binaryTreePaths(root))
+	log.Println("二叉树所有路径-递归：", binaryTreePaths1(root))
 }
 
 // binaryTreePaths dfs 前序遍历 递归

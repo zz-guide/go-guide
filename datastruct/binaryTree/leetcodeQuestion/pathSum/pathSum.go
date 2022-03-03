@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /***
@@ -15,9 +15,9 @@ func main() {
 	root := NewNormalTree()
 
 	targetSum := 11
-	fmt.Println("所有路径总和II-递归：", pathSum(root, targetSum))
-	//fmt.Println("所有路径总和II-递归：", pathSum1(root, targetSum))
-	fmt.Println("所有路径总和II-递归：", pathSum2(root, targetSum))
+	log.Println("所有路径总和II-递归：", pathSum(root, targetSum))
+	//log.Println("所有路径总和II-递归：", pathSum1(root, targetSum))
+	log.Println("所有路径总和II-递归：", pathSum2(root, targetSum))
 }
 
 // hasPathSum 递归法

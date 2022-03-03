@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -16,7 +16,7 @@ import (
 func main() {
 	root := NewNormalTree()
 
-	fmt.Println("是不是对称二叉树-递归:", findTilt(root))
+	log.Println("是不是对称二叉树-递归:", findTilt(root))
 }
 
 // findTilt 递归，后序遍历

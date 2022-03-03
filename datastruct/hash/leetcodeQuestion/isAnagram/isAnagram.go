@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"sort"
 )
 
@@ -29,10 +29,10 @@ s 和 t仅包含小写字母
 func main() {
 	s := "ab"
 	t := "a"
-	fmt.Println("有效的字母异位词-2个哈希:", isAnagram(s, t))
-	fmt.Println("有效的字母异位词-排序:", isAnagram(s, t))
-	fmt.Println("有效的字母异位词-数组模拟哈希:", isAnagram2(s, t))
-	fmt.Println("有效的字母异位词-一个哈希:", isAnagram3(s, t))
+	log.Println("有效的字母异位词-2个哈希:", isAnagram(s, t))
+	log.Println("有效的字母异位词-排序:", isAnagram(s, t))
+	log.Println("有效的字母异位词-数组模拟哈希:", isAnagram2(s, t))
+	log.Println("有效的字母异位词-一个哈希:", isAnagram3(s, t))
 }
 
 func isAnagram(s string, t string) bool {

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"go-guide/datastruct/binaryTree/traversal/levelorder"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -14,8 +14,8 @@ https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder
 func main() {
 	preorder := []int{9, 3, 15, 20, 7}
 	inorder := []int{9, 15, 7, 20, 3}
-	fmt.Println("中序后序构造二叉树-递归：", levelorder.TraversalRecursive(buildTree(preorder, inorder)))
-	fmt.Println("中序后序构造二叉树-迭代：", levelorder.TraversalRecursive(buildTree1(preorder, inorder)))
+	log.Println("中序后序构造二叉树-递归：", levelorder.TraversalRecursive(buildTree(preorder, inorder)))
+	log.Println("中序后序构造二叉树-迭代：", levelorder.TraversalRecursive(buildTree1(preorder, inorder)))
 }
 
 // buildTree 递归法构建，以根节点为切分，将左右区间递归

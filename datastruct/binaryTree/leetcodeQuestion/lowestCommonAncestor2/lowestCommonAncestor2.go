@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -30,7 +30,7 @@ func main() {
 
 	res := lowestCommonAncestor(root1, root2, root3)
 	if res != nil {
-		fmt.Println("搜索二叉树的【最近】公共祖先-递归：", res.Val)
+		log.Println("搜索二叉树的【最近】公共祖先-递归：", res.Val)
 	}
 }
 

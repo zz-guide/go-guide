@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"go-guide/datastruct/binaryTree/traversal/levelorder"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -25,8 +26,8 @@ func main() {
 	root1 := NewNormalTree()
 	root2 := NewNormalTree2()
 
-	fmt.Println("合并二叉树-递归：", levelorder.TraversalRecursive(mergeTrees(root1, root2)), levelorder.TraversalRecursive(root1), levelorder.TraversalRecursive(root2))
-	fmt.Println("合并二叉树-迭代：", levelorder.TraversalRecursive(mergeTrees1(root1, root2)), levelorder.TraversalRecursive(root1), levelorder.TraversalRecursive(root2))
+	log.Println("合并二叉树-递归：", levelorder.TraversalRecursive(mergeTrees(root1, root2)), levelorder.TraversalRecursive(root1), levelorder.TraversalRecursive(root2))
+	log.Println("合并二叉树-迭代：", levelorder.TraversalRecursive(mergeTrees1(root1, root2)), levelorder.TraversalRecursive(root1), levelorder.TraversalRecursive(root2))
 }
 
 // mergeTrees, 递归,前序遍历

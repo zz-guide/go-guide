@@ -58,6 +58,7 @@ func trap(height []int) int {
 	}
 
 	var res int
+	// 只有中间低，两边高才可以承雨水， min(低，高)-当前高度，当前高度必须小于两边最小的高度才能承水，不然就漏了
 	for i, h := range height {
 		res += min(leftMax[i], rightMax[i]) - h
 	}
@@ -74,6 +75,7 @@ func trap1(height []int) int {
 		leftMax = max(leftMax, height[left])
 		rightMax = max(rightMax, height[right])
 
+		// 永远移动高度较小的那一侧
 		if height[left] < height[right] {
 			res += leftMax - height[left]
 			left++
@@ -82,10 +84,11 @@ func trap1(height []int) int {
 			right--
 		}
 	}
+
 	return res
 }
 
-// trap2 单调栈(横向计算)
+// trap2 单调栈(横向计算)（不会）
 func trap2(height []int) int {
 	var stack []int
 	var res int
@@ -110,23 +113,26 @@ func trap2(height []int) int {
 
 // trap3 暴力法
 func trap3(height []int) int {
-	l := len(height)
+	length := len(height)
 	res := 0
-	// 起始位置是第一个，而不是0
-	// 结束位置是倒数第二个，而不是倒数第一个
-	for i := 1; i < l-1; i++ {
+
+	for i := 0; i < length-1; i++ {
+		// 向前遍历找最大高度
 		leftMax := 0
-		//
 		for k := 0; k <= i; k++ {
 			leftMax = max(height[k], leftMax)
 		}
+
+		// 向后遍历找最大高度
 		rightMax := 0
-		for j := i; j < l; j++ {
+		for j := i; j < length; j++ {
 			rightMax = max(height[j], rightMax)
 		}
-		minVal := min(leftMax, rightMax)
-		res += minVal - height[i]
+
+		// 求最大体积
+		res += min(leftMax, rightMax) - height[i]
 	}
+
 	return res
 }
 

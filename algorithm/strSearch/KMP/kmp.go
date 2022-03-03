@@ -24,12 +24,13 @@ https://blog.csdn.net/sunnianzhong/article/details/8802559
 */
 
 func main() {
-	str := "ababd"
-	target := "abd"
-	log.Println("KMP算法查找:", KMP(str, target))
+	str := "ccabccbaxx"
+	pattern := "abcabc"
+	log.Println("KMP算法查找:", KMP(str, pattern))
 }
 
-// KMP 构造前缀表next 方法一:前缀表使用减1实现
+// KMP 构造前缀表next
+// 方法一: 前缀表使用减1实现
 // params: next 前缀表数组 s6 模式串
 func KMP(str string, target string) int {
 	if len(target) == 0 {
@@ -44,7 +45,9 @@ func KMP(str string, target string) int {
 
 	j := 0
 	for i := 0; i < len(str); i++ {
+		log.Println("就:", str[i], target[j])
 		for j > 0 && str[i] != target[j] {
+			log.Println("就1:", str[i], target[j])
 			j = next[j-1]
 		}
 
@@ -52,31 +55,32 @@ func KMP(str string, target string) int {
 			j++
 		}
 
+		// 模式串是否已匹配结束
 		if j == len(target) {
 			return i - len(target) + 1
 		}
 	}
+
 	return -1
 }
 
+// 获取模式串的公共前后缀长度数组
 func getNext(s string) []int {
 	next := make([]int, len(s))
-	j := 0      // j表示 最长相等前后缀长度
-	next[0] = j // 子串长度为1的时候相等长度为0
-
+	commonPrefixSuffixLength := 0 // 公共前后缀长度
+	next[0] = 0
+	// 从第2个字符开始
 	for i := 1; i < len(s); i++ {
-
-		for j > 0 && s[i] != s[j] {
-			j = next[j-1]
+		for commonPrefixSuffixLength > 0 && s[i] != s[commonPrefixSuffixLength] {
+			// 若不相等，则公共前后缀长度等于上一位置的长度
+			commonPrefixSuffixLength = next[commonPrefixSuffixLength-1]
 		}
 
-		// i和j相等的情况，长度等于j++
-		if s[i] == s[j] {
-			j++
+		if s[i] == s[commonPrefixSuffixLength] {
+			commonPrefixSuffixLength++
 		}
 
-		// 当不相等的情况直接j=0
-		next[i] = j
+		next[i] = commonPrefixSuffixLength
 	}
 
 	return next

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"sort"
 )
 
@@ -31,7 +31,7 @@ import (
 
 func main() {
 	nums := []int{-1, 0, 1, 2}
-	fmt.Println("三数之和:", threeSum(nums))
+	log.Println("三数之和:", threeSum(nums))
 }
 
 // threeSum 排序+双指针

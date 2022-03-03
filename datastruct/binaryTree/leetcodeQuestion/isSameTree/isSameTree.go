@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -21,8 +21,8 @@ func main() {
 	root1 := NewSearchTreeNode()
 	root2 := NewSearchTreeNode()
 
-	fmt.Println("相同的树-递归：", isSameTree(root1, root2))
-	fmt.Println("相同的树-迭代：", isSameTree1(root1, root2))
+	log.Println("相同的树-递归：", isSameTree(root1, root2))
+	log.Println("相同的树-迭代：", isSameTree1(root1, root2))
 }
 
 // isSameTree 递归

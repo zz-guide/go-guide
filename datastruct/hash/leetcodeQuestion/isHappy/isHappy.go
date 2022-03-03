@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /**
 题目：https://leetcode-cn.com/problems/happy-number/
@@ -21,9 +23,9 @@ import "fmt"
 */
 func main() {
 	n := 19
-	fmt.Println("快乐数-双指针:", isHappy(n))
-	fmt.Println("快乐数-哈希:", isHappy1(n))
-	fmt.Println("快乐数-数学归纳总结法:", isHappy2(n))
+	log.Println("快乐数-双指针:", isHappy(n))
+	log.Println("快乐数-哈希:", isHappy1(n))
+	log.Println("快乐数-数学归纳总结法:", isHappy2(n))
 }
 
 // isHappy 快慢指针，快指针每次执行2次，慢指针执行一次

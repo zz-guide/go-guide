@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -26,8 +26,8 @@ func main() {
 	root := NewNormalTree()
 	low := 1
 	high := 2
-	fmt.Println("修剪二叉搜索树-递归：", trimBST(root, low, high))
-	fmt.Println("修剪二叉搜索树-迭代：", trimBST1(root, low, high))
+	log.Println("修剪二叉搜索树-递归：", trimBST(root, low, high))
+	log.Println("修剪二叉搜索树-迭代：", trimBST1(root, low, high))
 }
 
 // trimBST dfs 前序遍历 递归

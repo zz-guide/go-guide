@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /**
 题目：https://leetcode-cn.com/problems/decode-string/
@@ -23,8 +25,8 @@ import "fmt"
 */
 func main() {
 	s := "123"
-	fmt.Println("字符串解码-递归:", decodeString(s))
-	fmt.Println("字符串解码-单调栈:", decodeString1(s))
+	log.Println("字符串解码-递归:", decodeString(s))
+	log.Println("字符串解码-单调栈:", decodeString1(s))
 }
 
 // decodeString 递归

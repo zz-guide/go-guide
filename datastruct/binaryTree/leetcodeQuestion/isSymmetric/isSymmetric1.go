@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -32,13 +32,17 @@ import (
 func main() {
 	root := NewSymmetricTree()
 
-	fmt.Println("是不是对称二叉树-递归:", isSymmetric1(root))
-	fmt.Println("是不是对称二叉树-递归:", isSymmetric2(root))
-	fmt.Println("是不是对称二叉树-递归:", isSymmetric3(root))
+	log.Println("是不是对称二叉树-dfs迭代法:", isSymmetric1(root))
+	log.Println("是不是对称二叉树-dfs递归:", isSymmetric2(root))
+	log.Println("是不是对称二叉树-bfs迭代:", isSymmetric3(root))
 }
 
-// isSymmetric1 迭代法,2个结点同时比较
+// isSymmetric1 dfs迭代法,复制一份root,同时比较2个root,但是方向不一样
 func isSymmetric1(root *TreeNode) bool {
+	if root == nil {
+		return true
+	}
+
 	l, r := root, root
 	// 队列每次存放下一次需要比较的元素，按照左右，右左的顺序放进去进行比较，最开始就是根元素自身
 	queue := []*TreeNode{l, r}
@@ -72,6 +76,10 @@ func isSymmetric1(root *TreeNode) bool {
 
 // isSymmetric2 递归法 时间复杂度O(n)，空间复杂度为O(n)
 func isSymmetric2(root *TreeNode) bool {
+	if root == nil {
+		return true
+	}
+
 	var check func(p, q *TreeNode) bool
 	check = func(p, q *TreeNode) bool {
 		if p == nil && q == nil {
@@ -90,19 +98,14 @@ func isSymmetric2(root *TreeNode) bool {
 // isSymmetric3 层序遍历bfs迭代，需要把头结点过滤掉，其次，每一层的结点即使有nil的也需要填充值
 func isSymmetric3(root *TreeNode) bool {
 	if root == nil {
-		return false
+		return true
 	}
 
-	var ret [][]int
-	var depth = 0 //深度,从0开始，最后结果是depth+1
-	levelNodeQueue := []*TreeNode{root}
-
-	intSize := 32 << (^uint(0) >> 63) // 32 or 64
-	MinInt := -1 << (intSize - 1)
+	levelNodeQueue := []*TreeNode{root.Left, root.Right}
 
 	for len(levelNodeQueue) > 0 {
 		// 进入新的一层需要留出一个位置放结果
-		ret = append(ret, []int{})
+		var ret []*TreeNode
 		length := len(levelNodeQueue)
 		for j := 0; j < length; j++ {
 			// 出栈，每次取第一个元素
@@ -110,27 +113,33 @@ func isSymmetric3(root *TreeNode) bool {
 			levelNodeQueue = levelNodeQueue[1:]
 
 			if node != nil {
-				ret[depth] = append(ret[depth], node.Val)
+				ret = append(ret, node)
 				// 入队列，按照从左到右的顺序, nil也必须入，判断对称需要的是左右结点全部的信息
 				levelNodeQueue = append(levelNodeQueue, node.Left)
 				levelNodeQueue = append(levelNodeQueue, node.Right)
 			} else {
-				ret[depth] = append(ret[depth], MinInt)
+				ret = append(ret, nil)
 			}
 		}
 
 		// 如果是奇数，肯定不是对称的
-		if length%2 != 0 && depth != 0 {
+		if length%2 != 0 {
 			return false
 		}
 
 		for i, j := 0, length-1; i < j; i, j = i+1, j-1 {
-			if ret[depth][i] != ret[depth][j] {
+			if ret[i] == nil && ret[j] == nil {
+				continue
+			}
+
+			if ret[i] == nil || ret[j] == nil {
+				return false
+			}
+
+			if ret[i].Val != ret[j].Val {
 				return false
 			}
 		}
-
-		depth++
 	}
 
 	return true

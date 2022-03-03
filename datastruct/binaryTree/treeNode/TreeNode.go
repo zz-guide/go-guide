@@ -79,6 +79,22 @@ func NewNormalTree2() *TreeNode {
 	return root
 }
 
+func NewNormalTree3() *TreeNode {
+	/**
+			 1
+		0           1
+	1       0    0      1
+	*/
+	root := &TreeNode{Val: 1}
+	root.Left = &TreeNode{Val: 0}
+	root.Left.Right = &TreeNode{Val: 0}
+
+	root.Right = &TreeNode{Val: 1}
+	root.Right.Left = &TreeNode{Val: 0}
+	root.Right.Right = &TreeNode{Val: 1}
+	return root
+}
+
 func Max(a, b int) int {
 	if a > b {
 		return a
@@ -151,5 +167,19 @@ func NewInsertSearchTreeNode() *TreeNode {
 	root.Right = &TreeNode{Val: 11}
 	root.Right.Left = &TreeNode{Val: 10}
 	root.Right.Right = &TreeNode{Val: 12}
+	return root
+}
+
+func NewWrongSearchTree() *TreeNode {
+	/**
+			 3
+		1           4
+	            2
+	*/
+	root := &TreeNode{Val: 3}
+	root.Left = &TreeNode{Val: 1}
+
+	root.Right = &TreeNode{Val: 4}
+	root.Right.Left = &TreeNode{Val: 2}
 	return root
 }

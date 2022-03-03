@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 /**
 题目：https://leetcode-cn.com/problems/largest-rectangle-in-histogram/
@@ -26,8 +29,8 @@ import "fmt"
 */
 func main() {
 	heights := []int{2, 1, 5, 6, 2, 3}
-	fmt.Println("柱状图中最大的矩形-暴力法:", largestRectangleArea(heights))
-	fmt.Println("柱状图中最大的矩形-单调栈:", largestRectangleArea1(heights))
+	log.Println("柱状图中最大的矩形-暴力法:", largestRectangleArea(heights))
+	log.Println("柱状图中最大的矩形-单调栈:", largestRectangleArea1(heights))
 }
 
 // largestRectangleArea 暴力解法

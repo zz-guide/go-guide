@@ -19,11 +19,11 @@ func main() {
 	s2 := GetInstance()
 	s3 := GetInstance()
 	s4 := s3
-	fmt.Printf("kmp: %p %+v %+v \n", &s1, s1, unsafe.Pointer(s1))
+	fmt.Printf("s1: %p %+v %+v \n", &s1, s1, unsafe.Pointer(s1))
 	fmt.Printf("s2: %p %+v %+v \n", &s2, s2, unsafe.Pointer(s2))
 	fmt.Printf("s3: %p %+v %+v \n", &s3, s3, unsafe.Pointer(s3))
 	fmt.Printf("s4: %p %+v %+v \n", &s4, s4, unsafe.Pointer(s4))
-	fmt.Println("kmp == s2", reflect.DeepEqual(s1, s2))
+	fmt.Println("s1 == s2", reflect.DeepEqual(s1, s2))
 	fmt.Println("s2 == s3", reflect.DeepEqual(s2, s3))
 	fmt.Println("s3 == s4", reflect.DeepEqual(s3, s4))
 }

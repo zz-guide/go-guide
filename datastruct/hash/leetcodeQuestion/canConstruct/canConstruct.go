@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /**
 题目：https://leetcode-cn.com/problems/ransom-note/
@@ -25,8 +27,8 @@ ransomNote 和 magazine 由小写英文字母组成
 func main() {
 	ransomNote := "aa"
 	magazine := "ab"
-	fmt.Println("赎金信-哈希map:", canConstruct(ransomNote, magazine))
-	fmt.Println("赎金信-数组:", canConstruct1(ransomNote, magazine))
+	log.Println("赎金信-哈希map:", canConstruct(ransomNote, magazine))
+	log.Println("赎金信-数组:", canConstruct1(ransomNote, magazine))
 }
 
 func canConstruct(ransomNote string, magazine string) bool {

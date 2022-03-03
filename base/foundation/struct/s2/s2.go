@@ -21,8 +21,10 @@ func main() {
 	u.Test()
 
 	mValue := u.Test
+	//instance.method(args...)
 	mValue() // 隐式传递 receiver
 
+	//<type>.func(instance, args...)
 	mExpression := (*User).Test
 	mExpression(&u) // 显式传递 receiver
 }

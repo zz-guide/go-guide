@@ -1,15 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+	"unsafe"
+)
 
 func main() {
+	f4()
+}
+
+func f1() {
+
 	s1 := "woaini"
 	// 字符串通过slice的语法，返回的还是字符串
 	fmt.Println("kmp[:]", s1[:], s1[:] == s1)
 	fmt.Println("kmp[0]", s1[0])
-}
 
-func f1() {
 	str := "烫"
 	n := len(str)
 	for i := 0; i < n; i++ {
@@ -33,4 +40,22 @@ func f3() {
 	for i, ch := range str {
 		fmt.Println(i, ch) //ch的类型为rune 默认utf-8编码，一个汉字三个字节
 	}
+}
+
+func f4() {
+	// 字符串不可变，并且是UTF8编码的
+	s1 := "hello"
+	s2 := "hell"
+
+	fmt.Printf("s1:%#v\n", *(*reflect.StringHeader)(unsafe.Pointer(&s1)))
+	fmt.Printf("s2:%#v\n", *(*reflect.StringHeader)(unsafe.Pointer(&s2)))
+
+	c := []byte(s1)
+	c[2] = 'n'
+	s1 = string(c)
+	fmt.Printf("s1:%#v\n", *(*reflect.StringHeader)(unsafe.Pointer(&s1)))
+
+	//var sum *int = new(int) //分配空间
+	//*sum = 98
+	//fmt.Println(*sum)
 }

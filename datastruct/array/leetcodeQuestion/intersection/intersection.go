@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"sort"
 )
 
@@ -23,10 +23,10 @@ import (
 func main() {
 	a := []int{1, 2, 2, 1}
 	b := []int{2, 2}
-	fmt.Println("两个数组的交集-哈希:", intersection(a, b))
-	fmt.Println("两个数组的交集-排序:", intersection1(a, b))
-	fmt.Println("两个数组的交集-排序2(降低空间复杂度):", intersection2(a, b))
-	fmt.Println("两个数组的交集-暴力法:", intersection3(a, b))
+	log.Println("两个数组的交集-哈希:", intersection(a, b))
+	log.Println("两个数组的交集-排序:", intersection1(a, b))
+	log.Println("两个数组的交集-排序2(降低空间复杂度):", intersection2(a, b))
+	log.Println("两个数组的交集-暴力法:", intersection3(a, b))
 }
 
 // intersection 哈希

@@ -21,6 +21,7 @@ func (t *T) testP() {
 */
 func main() {
 	t1 := T{1}
+	t1.testP()
 	t2 := &t1
 	fmt.Printf("t2 is : %v\n", t2)
 	t2.testT()

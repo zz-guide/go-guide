@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /**
 题目：https://leetcode-cn.com/problems/next-greater-element-i/
@@ -51,8 +53,8 @@ nums1 中的所有整数同样出现在 nums2 中
 func main() {
 	nums1 := []int{4, 1, 2}
 	nums2 := []int{1, 3, 4, 2}
-	fmt.Println("下一个更大元素 I-暴力:", nextGreaterElement(nums1, nums2))
-	fmt.Println("下一个更大元素 I-单调栈:", nextGreaterElement1(nums1, nums2))
+	log.Println("下一个更大元素 I-暴力:", nextGreaterElement(nums1, nums2))
+	log.Println("下一个更大元素 I-单调栈:", nextGreaterElement1(nums1, nums2))
 }
 
 // nextGreaterElement 暴力法 先找元素存在不存在，然后在找nums2第一个大于的元素

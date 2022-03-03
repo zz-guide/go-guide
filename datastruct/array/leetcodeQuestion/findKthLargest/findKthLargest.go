@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /**
 题目：https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
@@ -20,9 +22,9 @@ import "fmt"
 func main() {
 	nums := []int{3, 2, 1, 5, 6, 4}
 	k := 2
-	fmt.Println("数组中的第K个最大元素：", findKthLargest(nums, k))
+	log.Println("数组中的第K个最大元素：", findKthLargest(nums, k))
 }
 
 func findKthLargest(nums []int, k int) int {
-
+	return 0
 }

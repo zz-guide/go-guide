@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /**
 题目:https://leetcode-cn.com/problems/two-sum/
@@ -18,8 +20,8 @@ import "fmt"
 func main() {
 	nums := []int{2, 7, 11, 15}
 	target := 9
-	fmt.Println("两数之和-暴力法:", twoSum(nums, target))
-	fmt.Println("两数之和-哈希map:", twoSum1(nums, target))
+	log.Println("两数之和-暴力法:", twoSum(nums, target))
+	log.Println("两数之和-哈希map:", twoSum1(nums, target))
 }
 
 // twoSum 双指针，时间复杂度O(n^2),空间复杂度：O(1)

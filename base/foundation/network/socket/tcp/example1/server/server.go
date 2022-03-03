@@ -44,7 +44,7 @@ func main() {
 	for {
 		fmt.Println("---------start-------")
 		conn, err := listen.Accept()
-		// 不会向下执行了
+		// 等待客户端连接
 		fmt.Println("---------cccccc-------")
 		if err != nil {
 			fmt.Println("accept failed, err:", err)

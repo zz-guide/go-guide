@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -36,8 +36,8 @@ import (
 */
 func main() {
 	root := NewSearchTreeNode()
-	fmt.Println("二叉搜索树中的众数-递归：", findMode(root))
-	fmt.Println("二叉搜索树中的众数-迭代：", findMode(root))
+	log.Println("二叉搜索树中的众数-递归：", findMode(root))
+	log.Println("二叉搜索树中的众数-迭代：", findMode(root))
 }
 
 // findMode 中序遍历，递归法

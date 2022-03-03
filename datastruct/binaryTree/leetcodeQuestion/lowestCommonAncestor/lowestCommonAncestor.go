@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -34,7 +34,7 @@ func main() {
 
 	res := lowestCommonAncestor(root1, root2, root3)
 	if res != nil {
-		fmt.Println("二叉树的【最近】公共祖先-递归：", res.Val)
+		log.Println("二叉树的【最近】公共祖先-递归：", res.Val)
 	}
 }
 
@@ -44,7 +44,7 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 		return nil
 	}
 
-	// 条件1
+	// 条件1 结点自身也是最近公共祖先
 	if root == p || root == q {
 		return root
 	}
@@ -53,11 +53,12 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	leftAncestor := lowestCommonAncestor(root.Left, p, q)
 	rightAncestor := lowestCommonAncestor(root.Right, p, q)
 
-	// 条件2
+	// 条件2 root的直接左子结点和右子结点刚好就是p,q
 	if leftAncestor != nil && rightAncestor != nil {
 		return root
 	}
 
+	// root和p,q分属于不同的子树
 	if leftAncestor != nil {
 		return leftAncestor
 	}
@@ -69,9 +70,10 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	return nil
 }
 
-// lowestCommonAncestor1 先递归寻找q的祖先结点，然后遍历p,最先碰到的就是最近祖先
+// lowestCommonAncestor1 O(n)
 func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
 	parent := map[int]*TreeNode{}
+	// 利用dfs把每个结点的父节点存起来
 	var dfs func(*TreeNode)
 	dfs = func(r *TreeNode) {
 		if r == nil {
@@ -88,12 +90,14 @@ func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
 	}
 	dfs(root)
 
+	// 先标记parent里哪些是p的父节点
 	ancestors := map[int]bool{}
 	for p != nil {
 		ancestors[p.Val] = true
 		p = parent[p.Val]
 	}
 
+	// 从p的父节点里找哪些是q的父节点
 	for q != nil {
 		// 如果发现已经设置为祖先了，那么就是最近的
 		if ancestors[q.Val] {

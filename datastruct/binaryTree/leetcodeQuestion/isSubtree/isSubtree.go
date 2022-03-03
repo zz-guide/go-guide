@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -21,8 +21,8 @@ func main() {
 	root1 := NewSearchTreeNode()
 	root2 := NewSearchTreeNode()
 
-	fmt.Println("另一颗树的子树-递归：", isSubtree(root1, root2))
-	fmt.Println("另一颗树的子树-迭代：", isSubtree1(root1, root2))
+	log.Println("另一颗树的子树-递归：", isSubtree(root1, root2))
+	log.Println("另一颗树的子树-迭代：", isSubtree1(root1, root2))
 }
 
 // 用相等或者对称的逻辑都可以

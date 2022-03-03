@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"go-guide/datastruct/binaryTree/traversal/levelorder"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -37,8 +37,8 @@ root是合法的二叉搜索树
 func main() {
 	root := NewSearchTreeNode()
 	val := 2
-	fmt.Println("删除二叉搜索树结点-递归：", levelorder.TraversalRecursive(deleteNode(root, val)))
-	fmt.Println("删除二叉搜索树结点-迭代：", levelorder.TraversalRecursive(deleteNode1(root, val)))
+	log.Println("删除二叉搜索树结点-递归：", levelorder.TraversalRecursive(deleteNode(root, val)))
+	log.Println("删除二叉搜索树结点-迭代：", levelorder.TraversalRecursive(deleteNode1(root, val)))
 }
 
 // deleteNode 递归法

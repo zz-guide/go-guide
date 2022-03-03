@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /***
@@ -20,7 +20,7 @@ import (
 */
 func main() {
 	root := NewNormalTree()
-	fmt.Println("二叉搜索树的最小绝对差-递归：", getMinimumDifference(root))
+	log.Println("二叉搜索树的最小绝对差-递归：", getMinimumDifference(root))
 }
 
 // getMinimumDifference 递归法，需要注意的是，得保存一个pre结点的值，只靠递归的话无法知道前一个结点是谁

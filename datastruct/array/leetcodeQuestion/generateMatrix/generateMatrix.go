@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /**
 题目：https://leetcode-cn.com/problems/spiral-matrix-ii/
@@ -18,7 +20,7 @@ import "fmt"
 */
 func main() {
 	n := 3
-	fmt.Println("螺旋矩阵 II:", generateMatrix(n))
+	log.Println("螺旋矩阵 II:", generateMatrix(n))
 }
 
 // generateMatrix 四个变量对应四个方向，画一下对应坐标的关系就知道了

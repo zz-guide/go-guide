@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"go-guide/datastruct/binaryTree/traversal/levelorder"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -34,8 +34,8 @@ import (
 func main() {
 	root := NewSearchTreeNode()
 	val := 2
-	fmt.Println("二叉搜索树中的搜索-递归：", levelorder.TraversalRecursive(searchBST(root, val)))
-	fmt.Println("二叉搜索树中的搜索-迭代：", levelorder.TraversalRecursive(searchBST1(root, val)))
+	log.Println("二叉搜索树中的搜索-递归：", levelorder.TraversalRecursive(searchBST(root, val)))
+	log.Println("二叉搜索树中的搜索-迭代：", levelorder.TraversalRecursive(searchBST1(root, val)))
 }
 
 // 递归法，适用于所有的二叉树

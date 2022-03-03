@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 /**
 题目：https://leetcode-cn.com/problems/shortest-unsorted-continuous-subarray/
@@ -22,9 +24,9 @@ import "fmt"
 */
 func main() {
 	nums := []int{2, 6, 4, 8, 10, 9, 15}
-	fmt.Println("最短无序连续子数组：", findUnsortedSubarray(nums))
+	log.Println("最短无序连续子数组：", findUnsortedSubarray(nums))
 }
 
 func findUnsortedSubarray(nums []int) int {
-
+	return 0
 }

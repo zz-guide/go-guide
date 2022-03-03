@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"go-guide/datastruct/binaryTree/traversal/levelorder"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -32,8 +32,8 @@ nums 中的所有整数 互不相同
 */
 func main() {
 	nums := []int{3, 2, 1, 6, 0, 5}
-	fmt.Println("最大二叉树-递归：", levelorder.TraversalRecursive(constructMaximumBinaryTree(nums)))
-	fmt.Println("最大二叉树-迭代：", levelorder.TraversalRecursive(constructMaximumBinaryTree1(nums)))
+	log.Println("最大二叉树-递归：", levelorder.TraversalRecursive(constructMaximumBinaryTree(nums)))
+	log.Println("最大二叉树-迭代：", levelorder.TraversalRecursive(constructMaximumBinaryTree1(nums)))
 }
 
 // constructMaximumBinaryTree 递归法

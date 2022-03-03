@@ -38,6 +38,8 @@ func bubbleSort(nums []int) []int {
 				nums[j], nums[j+1] = nums[j+1], nums[j]
 			}
 		}
+
+		log.Println("nums:", nums)
 	}
 	return nums
 }
@@ -63,6 +65,7 @@ func bubbleSort2(nums []int) []int {
 			}
 		}
 	}
+
 	return nums
 }
 

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"math"
 
 	. "go-guide/datastruct/binaryTree/treeNode"
@@ -23,8 +23,8 @@ import (
 */
 func main() {
 	searchNode := NewSearchTreeNode()
-	fmt.Println("验证二叉搜索树-迭代法:", isValidBST(searchNode))
-	fmt.Println("验证二叉搜索树-Morris遍历判断:", TraversalMorris(searchNode))
+	log.Println("验证二叉搜索树-迭代法:", isValidBST(searchNode))
+	log.Println("验证二叉搜索树-Morris遍历判断:", TraversalMorris(searchNode))
 }
 
 func isValidBST(root *TreeNode) bool {

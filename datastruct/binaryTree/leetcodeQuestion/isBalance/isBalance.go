@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	. "go-guide/datastruct/binaryTree/treeNode"
+	"log"
 )
 
 /**
@@ -19,7 +19,7 @@ https://leetcode-cn.com/problems/balanced-binary-tree/
 func main() {
 	root := NewBalanceBinaryTree()
 
-	fmt.Println("是不是平衡二叉树-递归：", isBalanced(root))
+	log.Println("是不是平衡二叉树-递归：", isBalanced(root))
 }
 
 // isBalanced 时间复杂度：O(n),空间复杂度：O(n)，自底向上
