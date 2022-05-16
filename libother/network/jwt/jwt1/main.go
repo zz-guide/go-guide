@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go-guide/lib/jwt/jwt1/jt"
+	"go-guide/libother/network/jwt/jwt1/jt"
 )
 
 func main() {

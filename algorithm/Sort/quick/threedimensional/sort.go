@@ -24,6 +24,7 @@ func SortV1(arr []int, low, high int) {
 		return
 	}
 
+	// 数量少直接进行插入排序
 	if high-low <= InsertionSortMaxLength {
 		insertSort(arr, low, high)
 		return
@@ -49,6 +50,7 @@ func partitionV1(arr []int, low, high int) (int, int) {
 		arr[midIndex], arr[low] = arr[low], arr[midIndex]
 	}
 
+	// 三项切分
 	pivot := arr[low]
 	left, i, right := low, low+1, high
 	for i < right {

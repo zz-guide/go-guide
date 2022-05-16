@@ -1,96 +1,99 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 func main() {
-	//deferCall()
-	//log.Println("值:", f7())
+	log.Println("值:", deferReturn4())
 }
 
 func deferCall() {
 	// 结论：先进后出
-	defer func() { fmt.Println("打印前") }()
-	defer func() { fmt.Println("打印中") }()
-	defer func() { fmt.Println("打印后") }()
+	defer func() { log.Println("打印前") }()
+	defer func() { log.Println("打印中") }()
+	defer func() { log.Println("打印后") }()
 }
 
-func f1() {
-	for i := 0; i < 5; i++ {
-		defer fmt.Println(i)
-	}
-}
+func deferFor() {
+	// 先进后出，4，3，2，1，0
+	/*for i := 0; i < 5; i++ {
+		defer log.Println(i)
+	}*/
 
-func f2() {
-	for i := 0; i < 5; i++ {
-		/**
-		结论：i在defer执行的时候已经是4了
-		*/
+	/*for i := 0; i < 5; i++ {
+		// 打印的时候i已经是最终值了
 		defer func() {
-			fmt.Println("i的值", i)
+			log.Println(i)
 		}()
-	}
-}
+	}*/
 
-func f3() {
+	// 与第一种方式等价
 	for i := 0; i < 5; i++ {
-		defer func(n int) {
-			fmt.Println(n)
+		// 打印的时候i已经是最终值了
+		defer func(a int) {
+			log.Println(a)
 		}(i)
 	}
 }
 
-func f4() int {
+func deferReturn() int {
+	// 当函数签名没有声明具体返回值变量的时候，defer无法修改return之后的变量
 	t := 5
 	defer func() {
-		fmt.Println("t:", t)
+		log.Println("t:", t)
 		t++
+		log.Println("t++:", t)
 	}()
 	return t
 }
 
-func f5() (r int) {
-	/**
-	结论：r1: 0
-		r3: 0
-		r4: -1
-		r2: 3
-		值: 3
-
-	*/
-	fmt.Println("r1:", r)
+func deferReturn1() (r int) {
+	log.Println("r1:", r) // 0,此时是零值
 	defer func() {
-		fmt.Println("r4:", r)
+		log.Println("r4:", r) // -1,此时是首次return
 		r = 3
-		fmt.Println("r2:", r)
+		log.Println("r2:", r) // 3,此时是修改return
 	}()
-	fmt.Println("r3:", r)
-	return -1
+	log.Println("r3:", r) // 0,此时是零值
+	return -1             // -1,此时是首次return
 }
 
-func f6() (r int) {
-	/**
-	结论：r2: 0
-		r1: 5
-		值: 5
-
-		一旦return，r的值就是5了，因为修改的是t，r不变还是5
-
-	*/
+func deferReturn2() (r int) {
 	t := 5
 	defer func() {
-		fmt.Println("r1:", r)
+		log.Println("r1:", r) // 5,return的是5
 		t = t + 5
+		r++                   // 修改的是r的话还会修改，t不影响
+		log.Println("r3:", r) // 10，+5之后变成10
 	}()
-	fmt.Println("r2:", r)
+	log.Println("r2:", r) // 0,零值
 	return t
 }
 
-func f7() (r int) {
+func deferReturn3() (r int) {
 	/**
 	此处传值，不会影响返回值，如果是指针则会影响
 	*/
+	log.Println("r1:", r) // 0, 零值
+	// 局部变量同名,局部变量为准，无法影响到外围的r
 	defer func(r int) {
+		log.Println("r3:", r) // 0
 		r = r + 5
+		log.Println("r4:", r) // 5
 	}(r)
+	log.Println("r2:", r) // 0, 零值
+	return 1
+}
+
+func deferReturn4() (r int) {
+	log.Println("r1:", r) // 0, 零值
+	// 局部变量不同名，会影响外部变量，无法影响到外围的r
+	defer func(t int) {
+		log.Println("r3:", r) // 1
+		r = r + 5
+		log.Println("r4:", r) // 5
+	}(r)
+	log.Println("r2:", r) // 0, 零值
 	return 1
 }

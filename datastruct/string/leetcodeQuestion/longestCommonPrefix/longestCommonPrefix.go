@@ -3,26 +3,26 @@ package main
 import "fmt"
 
 /**
-	题目：
-		编写一个函数来查找字符串数组中的最长公共前缀。
+题目：
+	编写一个函数来查找字符串数组中的最长公共前缀。
 
-		如果不存在公共前缀，返回空字符串""。
-		示例 1：
+	如果不存在公共前缀，返回空字符串""。
+	示例 1：
 
-		输入：strs = ["flower","flow","flight"]
-		输出："fl"
-		示例 2：
+	输入：strs = ["flower","flow","flight"]
+	输出："fl"
+	示例 2：
 
-		输入：strs = ["dog","racecar","car"]
-		输出：""
-		解释：输入不存在公共前缀。
+	输入：strs = ["dog","racecar","car"]
+	输出：""
+	解释：输入不存在公共前缀。
 
-		提示：
+	提示：
 
-		1 <= strs.length <= 200
-		0 <= strs[i].length <= 200
-		strs[i] 仅由小写英文字母组成
- */
+	1 <= strs.length <= 200
+	0 <= strs[i].length <= 200
+	strs[i] 仅由小写英文字母组成
+*/
 func main() {
 	strs := []string{"abc", "ab", "abc", "abvd", "abcde"}
 	prefix := F1(strs)
@@ -57,7 +57,7 @@ func lcp(str1, str2 string) string {
 	y := len(str2)
 	length := 0
 	if x < y {
-		length =  x
+		length = x
 	} else {
 		length = y
 	}
@@ -73,6 +73,7 @@ func lcp(str1, str2 string) string {
 
 	return str1[:index] // 返回str1或者str2都行
 }
+
 // F2 纵向扫描
 // 时间复杂度：O(mn)O(mn)，其中 mm 是字符串数组中的字符串的平均长度，nn 是字符串的数量。最坏情况下，字符串数组中的每个字符串的每个字符都会被比较一次。
 // 空间复杂度：O(1)O(1)。使用的额外空间复杂度为常数。
@@ -110,13 +111,13 @@ func F3(strs []string) string {
 		}
 		mid := (start + end) / 2
 
-		lcpLeft, lcpRight := lcp(start, mid), lcp(mid + 1, end)
+		lcpLeft, lcpRight := lcp(start, mid), lcp(mid+1, end)
 
 		x := len(lcpLeft)
 		y := len(lcpRight)
 		minLength := 0
 		if x < y {
-			minLength =  x
+			minLength = x
 		} else {
 			minLength = y
 		}
@@ -159,7 +160,7 @@ func F4(strs []string) string {
 
 	low, high := 0, minLength
 	for low < high {
-		mid := (high - low + 1) / 2 + low
+		mid := (high-low+1)/2 + low
 		if isCommonPrefix(mid) {
 			low = mid
 		} else {

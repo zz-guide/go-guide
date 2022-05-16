@@ -13,8 +13,8 @@ func main() {
 
 func sendClose() {
 	/**
-		向一个已经关闭的channel发送数据会panic
-		panic: send on closed channel
+	向一个已经关闭的channel发送数据会panic
+	panic: send on closed channel
 	*/
 	c := make(chan int, 3)
 	close(c)
@@ -23,13 +23,13 @@ func sendClose() {
 
 func readClose() {
 	/**
-			读已经关闭的通道，如果有值就一直读，没值就返回类型的零值
-	 */
+	读已经关闭的通道，如果有值就一直读，没值就返回类型的零值
+	*/
 
 	fmt.Println("以下是数值的 chan")
 	ci := make(chan byte, 0)
 	go func() {
-		ci <- 255		// constant 256 overflows byte,溢出了
+		ci <- 255 // constant 256 overflows byte,溢出了
 		fmt.Println("ssssss")
 		close(ci)
 	}()
@@ -40,7 +40,6 @@ func readClose() {
 	fmt.Printf("再读chan的协程结束，num=%+v, ok=%v\n", num1, ok1)
 	num2, ok2 := <-ci
 	fmt.Printf("再再读chan的协程结束，num=%+v, ok=%v\n", num2, ok2)
-
 
 	fmt.Println("以下是字符串的chan")
 	cs := make(chan string, 3)
@@ -53,7 +52,6 @@ func readClose() {
 	fmt.Printf("再读chan的协程结束，num=%+v, ok=%v\n", str1, okl)
 	str2, ok2 := <-cs
 	fmt.Printf("再再读chan的协程结束，num=%+v, ok=%v\n", str2, ok2)
-
 
 	fmt.Println("以下是结构体的chan")
 	type MyStruct struct {
@@ -71,11 +69,10 @@ func readClose() {
 	fmt.Printf("再再读chan的协程结束，num=%v, ok=%v\n", stru2, ok2)
 }
 
-
-func howClose(){
+func howClose() {
 	/**
-	   链接：https://www.zhihu.com/question/450188866/answer/1790314327
-	 */
+	  链接：https://www.zhihu.com/question/450188866/answer/1790314327
+	*/
 
 	c := make(chan int, 10)
 	wg := sync.WaitGroup{}

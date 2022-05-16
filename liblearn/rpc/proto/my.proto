@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+// 此处定义了生成的xxxx.pb.go中的package名字
+package my;
+
+// The import path must contain at least one forward slash ('/') character.
+// 至少包含一个"/"
+// 此处定义了文件夹的名字以及路径
+option  go_package = "/my";
+
+/**
+proto3变化：
+  1.移除了required关键字
+  2.移除了optional关键字
+ */
+
+// message 推荐大写
+message MyRequest{
+  // 编号从1开始
+  string name = 1;   // 消息字段名推荐小写
+  int64 id = 2;   // 消息字段名推荐小写
+  enum Color {
+    WHITE = 0;
+    RED = 1;
+    BLUE = 2;
+    GREEN = 3;
+  }
+
+  Color color = 4;  // 枚举字段
+}
+
+message MyResponse{
+  MyRequest res = 1;
+}
+
+// 定义一个RPC服务
+// 格式：rpc 名称(请求参数) returns (返回参数)
+service MyRPCService{
+  // 一个正常的RPC服务
+  rpc GetMy(MyRequest) returns (MyResponse);
+}

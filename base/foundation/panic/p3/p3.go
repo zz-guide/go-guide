@@ -5,10 +5,11 @@ import (
 	"sync"
 	"time"
 )
+
 /**
-		结论：不知道为啥panic以后。waitGroup内的defer还会执行
-		有了sleep(3)之后就会执行了？
- */
+结论：不知道为啥panic以后。waitGroup内的defer还会执行
+有了sleep(3)之后就会执行了？
+*/
 func main() {
 	fmt.Println("----开始----")
 	var wg sync.WaitGroup

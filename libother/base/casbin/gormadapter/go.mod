@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/casbin/casbin/v2 v2.39.0
-	github.com/casbin/gorm-adapter/v3 v3.4.5
+	github.com/casbin/gorm-adapter/v3 v3.5.1
 	github.com/go-sql-driver/mysql v1.6.0
 )
 
@@ -25,8 +25,8 @@ require (
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	gorm.io/driver/mysql v1.1.2 // indirect
-	gorm.io/driver/postgres v1.1.2 // indirect
-	gorm.io/driver/sqlserver v1.0.9 // indirect
-	gorm.io/gorm v1.21.15 // indirect
+	gorm.io/driver/postgres v1.2.2 // indirect
+	gorm.io/driver/sqlserver v1.2.1 // indirect
+	gorm.io/gorm v1.22.3 // indirect
 	gorm.io/plugin/dbresolver v1.1.0 // indirect
 )

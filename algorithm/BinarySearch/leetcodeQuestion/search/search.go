@@ -40,16 +40,18 @@ nums 中的每个值都 独一无二
 	1.原数组是升序的，从某一个位置经过旋转以后，数组变成了2部分有序数组
 	2.使用二分查找从有序的部分进行搜索即可
 	3.可以直接拆分，肯定有一半是有序的
-
+	4.这种数组都有一个特点，有序的这两部分，一定是从数组的开始位置或者结束位置开始算起
 
 */
 func main() {
-	nums := []int{4, 5, 6, 7, 0, 1, 2}
-	target := 0
+	nums := []int{2, 4, 5, 6, 7, 0, 1}
+	target := 7
 	log.Println("搜索旋转排序数组:", search(nums, target))
 }
 
 // search 二分查找 O(logN)
+// 虽然本质上是乱序数组，但是可以通过条件知道有序的部分在哪
+// 需要判定target是否在有序的区间内
 func search(nums []int, target int) int {
 	length := len(nums)
 	if length == 0 {
@@ -64,7 +66,7 @@ func search(nums []int, target int) int {
 			return mid
 		}
 
-		// 此时0~mid部分有序
+		// 此时0~mid部分有序,此处想法非常重要
 		if nums[0] <= nums[mid] {
 			// 此时target落在前半部分有序区间内,mid=的情况已经提前判断了
 			if nums[0] <= target && target < nums[mid] {

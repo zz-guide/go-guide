@@ -7,10 +7,10 @@ import (
 
 // struct{}{}不占内存
 func main() {
-	fmt.Println(unsafe.Sizeof(struct{}{}))	// 结果为 0
+	fmt.Println(unsafe.Sizeof(struct{}{})) // 结果为 0
 }
 
-func inArrayOrSlice(arrOrSlice []int, ele int) bool{
+func inArrayOrSlice(arrOrSlice []int, ele int) bool {
 	if len(arrOrSlice) == 0 {
 		return false
 	}
@@ -20,6 +20,6 @@ func inArrayOrSlice(arrOrSlice []int, ele int) bool{
 			return true
 		}
 	}
-	
+
 	return false
 }
