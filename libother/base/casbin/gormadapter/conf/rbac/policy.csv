@@ -1,6 +1,0 @@
-p, 1, /student/search, GET
-p, 1, /student/create, POST
-p, 1, /student/dd, PUT
-g, 2, 1
-g2, /student/search, /student/dd
-
