@@ -2,10 +2,10 @@ package command
 
 import (
 	"fmt"
+	"mysqldoc/config"
+	"mysqldoc/route"
 	"net/http"
 	"os"
-	"src/config"
-	"src/route"
 )
 
 var Model int

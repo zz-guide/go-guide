@@ -1,7 +1,7 @@
 package main
 
 /**
-值传递和引用传递
+go语言类型比较
 */
 func main() {
 
