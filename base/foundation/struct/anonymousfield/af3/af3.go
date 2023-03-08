@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
 //人
 type Person struct {
@@ -21,8 +23,8 @@ type Student struct {
 
 func main() {
 	s1 := Student{Person{"5lmh", "man", 18}, 1, "bj"}
-	fmt.Printf("s1:%+v\n", s1)
-	fmt.Println(s1.mystr)
-	fmt.Println(s1.int)
-	fmt.Println(s1.Person)
+	log.Printf("s1:%+v\n", s1)
+	log.Println(s1.mystr)
+	log.Println(s1.int)
+	log.Println(s1.Person)
 }

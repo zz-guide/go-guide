@@ -25,10 +25,10 @@ func (c car) move() {
 	fmt.Printf("%s速度70迈\n", c.brand)
 }
 
-/*
-多个类型实现同一接口
-*/
-func main() {
+func T1() {
+	/*
+		多个类型实现同一接口
+	*/
 	var x Mover
 	var a = dog{name: "旺财"}
 	var b = car{brand: "保时捷"}
@@ -38,8 +38,10 @@ func main() {
 	x.move()
 }
 
-// 并且一个接口的方法，不一定需要由一个类型完全实现，接口的方法可以通过在类型中嵌入其他类型或者结构体来实现。
-// WashingMachine 洗衣机
+func main() {
+	T2()
+}
+
 type WashingMachine interface {
 	wash()
 	dry()
@@ -61,4 +63,10 @@ type haier struct {
 // 实现WashingMachine接口的wash()方法
 func (h haier) wash() {
 	fmt.Println("洗刷刷")
+}
+
+func T2() {
+	// 并且一个接口的方法，不一定需要由一个类型完全实现，接口的方法可以通过在类型中嵌入其他类型或者结构体来实现。
+	// WashingMachine 洗衣机
+	// 结论就是：接口的方法在类型里可以是组合实现的
 }

@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-// 内嵌+接口组合=>继承
+// 内嵌结构体，可以是值也可以是指针
 
 type User struct {
 	Id   int

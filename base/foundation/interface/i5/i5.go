@@ -26,10 +26,10 @@ func (d dog) move() {
 	fmt.Printf("%s会动\n", d.name)
 }
 
-/*
-一个类型实现多个接口
-*/
 func main() {
+	/*
+		一个类型可以实现多个接口
+	*/
 	var x Sayer
 	var y Mover
 

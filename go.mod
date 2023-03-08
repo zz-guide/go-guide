@@ -3,7 +3,6 @@ module go-guide
 go 1.18
 
 require (
-	github.com/golang-module/carbon/v2 v2.0.0
 	github.com/gorilla/mux v1.8.0
 	github.com/gorilla/websocket v1.4.2
 	github.com/julienschmidt/httprouter v1.3.0

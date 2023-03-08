@@ -8,7 +8,8 @@ import (
 
 func main() {
 	//TTT()
-	T1()
+	//T1()
+	TCheck()
 }
 
 func TTT() {
@@ -34,4 +35,15 @@ func T1() {
 	log.Printf("&a:%p, %d\n", &a, uintptr(unsafe.Pointer(&a)))
 	log.Printf("a:%p\n", a)
 	log.Printf("a: %p %+v \n", &a, *(*reflect.SliceHeader)(unsafe.Pointer(&a)))
+}
+
+func TCheck() {
+	// 判断变量是数组还是切片
+	arr := [2]int{1, 2}
+	t := reflect.TypeOf(arr)
+	log.Println("arr类型：", t.Kind() == reflect.Array)
+
+	slice := []int{1, 2}
+	t1 := reflect.TypeOf(slice)
+	log.Println("slice类型：", t1.Kind() == reflect.Slice)
 }

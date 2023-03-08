@@ -2,7 +2,9 @@ package util
 
 import "time"
 
-const TimeConst = "2006-01-01 15:04:05"
+const TimeConst = "15:04:05"
+const DateConst = "2006-01-01"
+const DateTimeConst = DateConst + " " + TimeConst
 
 func Time2Str(t time.Time) string {
 	temp := time.Date(t.Year(), t.Month(), t.Day(), t.Hour(), t.Minute(), t.Second(), t.Nanosecond(), time.Local)

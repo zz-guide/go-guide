@@ -22,6 +22,10 @@ func (c cat) say() {
 }
 
 func main() {
+	T1()
+}
+
+func T1() {
 	var x Sayer // 声明一个Sayer类型的变量x
 	a := cat{}  // 实例化一个cat
 	b := dog{}  // 实例化一个dog

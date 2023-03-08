@@ -1,8 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
 
-//人
 type Person struct {
 	name string
 	sex  string
@@ -21,9 +22,9 @@ func main() {
 	var s Student
 	// 给自己字段赋值了
 	s.name = "5lmh"
-	fmt.Println(s)
+	log.Println(s)
 
 	// 若给父类同名字段赋值，如下
 	s.Person.name = "枯藤"
-	fmt.Println(s)
+	log.Println(s)
 }
