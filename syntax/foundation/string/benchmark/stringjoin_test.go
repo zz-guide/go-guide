@@ -1,4 +1,4 @@
-package strperformance
+package benchmark
 
 import (
 	"bytes"
