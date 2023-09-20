@@ -1,4 +1,4 @@
-package stringperformance
+package strperformance
 
 import (
 	"bytes"
@@ -8,9 +8,12 @@ import (
 	"testing"
 )
 
-// bytes.Buffer,strings.Builder,+,fmt.Sprintf,strings.Join
-// 结论：大字符串推荐使用strings.Builder，底层没有拷贝数据，使用指针直接转换
-const numbers = 100
+/**
+1. bytes.Buffer,strings.Builder,+,fmt.Sprintf,strings.Join
+2. 大字符串推荐使用strings.Builder，底层没有拷贝数据，使用指针直接转换
+*/
+
+const numbers = 10000
 
 func BenchmarkStringsJoin(b *testing.B) {
 	b.ResetTimer()

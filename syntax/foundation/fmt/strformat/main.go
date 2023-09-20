@@ -1,16 +1,19 @@
-package StringFormating
+package main
 
 import (
 	"fmt"
 	"os"
 )
 
+func main() {
+
+}
+
 type point struct {
 	x, y int
 }
 
-//Printf函数格式化
-func TestStringFormating() {
+func tStrFormat() {
 
 	// Go offers several printing "verbs" designed to
 	// format general Go values. For example, this prints
