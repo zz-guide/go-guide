@@ -1,2 +1,2 @@
 # go-guide
-go学习
+练习Go
