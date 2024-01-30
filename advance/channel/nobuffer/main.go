@@ -15,17 +15,14 @@ var wg sync.WaitGroup
 
 func main() {
 	log.Println("====== START ======")
-	var chan1 = make(chan string, 1)
+	var chan1 = make(chan string, 0)
 	// 发送方
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
 		log.Println("===立即发送===")
 		chan1 <- "123"
-		log.Println("===发送完毕 1===") // 此处会立即开始打印，缓冲未满
-
-		chan1 <- "234"
-		log.Println("===发送完毕 2===") // 此处会阻塞，缓冲已满
+		log.Println("===发送完毕===") // 无缓冲的话，此处会阻塞，直到开始接收
 		close(chan1)
 	}()
 
@@ -37,9 +34,6 @@ func main() {
 		time.Sleep(time.Second * 2)
 		v, ok := <-chan1
 		log.Printf("接收数据：v=%v, ok=%v\n", v, ok)
-
-		v1, ok1 := <-chan1
-		log.Printf("接收数据：v1=%v, ok1=%v\n", v1, ok1)
 
 	}()
 
